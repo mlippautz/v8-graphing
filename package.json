@@ -1,4 +1,8 @@
 {
+  "dependencies": {
+    "ngraph.pixel": "~2.4.0",
+    "ngraph.graph": "~0.0.12"
+  },
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.1"
