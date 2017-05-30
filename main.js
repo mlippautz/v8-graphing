@@ -1,7 +1,7 @@
 const url = require('url');
 const createGraph = require('ngraph.graph');
 const pixel = require('ngraph.pixel');
-const ajax = require('./ajax.js');
+const utils = require('./utils.js');
 
 const graphName = 'trace-small';
 const outDir = 'data';
@@ -16,9 +16,9 @@ function toJson(oReq) {
 }
 
 Promise.all([
-  ajax(graphDir + '/positions.bin', { responseType: 'arraybuffer' }).then(toInt32Array),
-  ajax(graphDir + '/links.bin', { responseType: 'arraybuffer' }).then(toInt32Array),
-  ajax(graphDir + '/labels.json').then(toJson)
+  utils.request(graphDir + '/positions.bin', { responseType: 'arraybuffer' }).then(toInt32Array),
+  utils.request(graphDir + '/links.bin', { responseType: 'arraybuffer' }).then(toInt32Array),
+  utils.request(graphDir + '/labels.json').then(toJson)
 ]).then(render);
 
 function render(data) {

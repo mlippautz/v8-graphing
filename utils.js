@@ -2,7 +2,6 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
-
 function request(url, requestOptions) {
   return new Promise((resolve, reject) => {
     const oReq = new XMLHttpRequest();
@@ -29,6 +28,6 @@ function setupOutDir(forFilename) {
 }
 
 module.exports = {
-  ajax: request,
+  request: request,
   setupOutDir: setupOutDir
 }
